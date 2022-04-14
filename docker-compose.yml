@@ -1,0 +1,16 @@
+version: '3.0'
+services:
+
+  mira-app:
+    build:
+      dockerfile: DockerfileAPP.development
+    restart: always
+    environment:
+      - PORT=8081
+      - SPRING_PROFILES_ACTIVE=dev
+    image: 'mira-user-gateway'
+    ports:
+      - 8081:8081
+
+volumes:
+  mira-gateway:
