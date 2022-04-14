@@ -1,5 +1,7 @@
 package mira.users.ms.restcontrollers;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import mira.users.ms.config.MyRestTemplate;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +19,7 @@ import javax.annotation.PostConstruct;
 @RestController
 @RequestMapping("api/v1/users")
 @RequiredArgsConstructor
+@Api(value = "UserController", tags = "Контролер для работы с пользователями")
 public class UserController {
 
     @Value("${mira.userservice.url}")
@@ -34,6 +37,10 @@ public class UserController {
 
     @GetMapping()
     @PreAuthorize("hasAuthority('ROLE_ADMIN')")
+    @ApiOperation(
+            value = "Получение списка пользователей",
+            notes = "Для выполнения необходимо указать в поле Authorisation токен полученный при авторизации в формате 'Bearer token'"
+    )
     public ResponseEntity<String> getUsers(@RequestHeader("Authorization") String authorisation){
         return myRestTemplate.exchange(authorisation, apiUrl + "/users", HttpMethod.GET, String.class);
     }

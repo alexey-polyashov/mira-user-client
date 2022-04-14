@@ -2,6 +2,9 @@ package mira.users.ms.restcontrollers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import mira.users.ms.config.MyRestTemplate;
@@ -26,6 +29,14 @@ public class AuthController {
     private final MyRestTemplate myRestTemplate;
 
     @PostMapping("")
+    @ApiOperation(
+            value = "Авторизация",
+            notes = "Администратор - admin-100, Обычный пользователь - user-100"
+    )
+    @ApiImplicitParams(value={
+            @ApiImplicitParam(name="username", value = "admin", required = true),
+            @ApiImplicitParam(name="password", value = "100", required = true)
+    })
     public ResponseEntity<JwtResponseDTO> getAuthToken(@RequestBody JwtRequestDTO authRequest) {
         log.info("AuthController, getAuthToken, - {}", authRequest.getUsername());
         String apiUrl = jwtTokenUtil.getAuthorisationUrl();
