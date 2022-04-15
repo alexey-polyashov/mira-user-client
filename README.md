@@ -25,4 +25,4 @@ API сервиса доступно для просмотра через swagger
 4. В среде разработки выполнить команду install в maven, для получения jar файла в папке target
 5. На компьютере должен быть установлен Docker (ссылка для установки - https://www.docker.com/get-started/) 
 6. В терминале выполнить команду: docker build -t mira-gateway
-7. Далее склонировать [этот](https://github.com/alexey-polyashov/mira-users-server) репозиторий и выполнить инструкции по запуску
+7. Далее склонировать [этот](https://github.com/alexey-polyashov/mira-users-server) репозиторий и выполнить инструкции по запуску в docker контейнере
