@@ -26,7 +26,7 @@ API сервиса доступно для просмотра через swagger
 3. Указать имя профиля для спринга через переменную среды: spring.profiles.active=dev
 4. В среде разработки выполнить команду install в maven, для получения jar файла в папке target: ./mvnw clean install -DskipTests
 5. На компьютере должен быть установлен Docker (ссылка для установки - https://www.docker.com/get-started/) 
-6. В терминале выполнить команду: docker build -t mira-gateway
+6. В терминале выполнить команду: docker build -t mira-gateway .
 7. Далее склонировать [этот](https://github.com/alexey-polyashov/mira-users-server) репозиторий и выполнить инструкции по запуску в docker контейнере
 8. Выполнить инструкцию из второго репозитория - https://github.com/alexey-polyashov/mira-users-server
 
